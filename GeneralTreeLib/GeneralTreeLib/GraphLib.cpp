@@ -4,6 +4,7 @@ GraphLib::GraphLib(int vertices)
 {
 	this->numOfVertices = vertices;
 	adjLists = new list<int>[vertices];
+	std::srand(static_cast<unsigned>(std::time(0))); // random seed
 }
 GraphLib::~GraphLib() {
 	
@@ -29,6 +30,27 @@ list<int> GraphLib::GetAdjacentNodes(int vertex) const
 	else {
 		return {};
 	}
+}
+void GraphLib::InsertVertexAtRandom() {
+	int randomPosition = std::rand() % (numOfVertices + 1);
+	InsertVertexAt(std::rand(), randomPosition);
+}
+void GraphLib::InsertVertexAt(int data, int position)
+{
+	if (position >= 0 && position <= numOfVertices) {
+		
+		adjLists[position].push_back(data);
+
+	
+		for (int i = 0; i < numOfVertices; ++i) {
+			if (i != position) {
+				adjLists[i].push_back(data);
+				adjLists[position].push_back(i);
+			}
+		}
+	}
+	numOfVertices++;
+
 }
 
 void GraphLib::PrintGraph()
