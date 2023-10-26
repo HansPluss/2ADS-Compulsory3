@@ -18,14 +18,20 @@ public:
 
         //creates a new root node
         Node* newNode = new Node();
-        newNode->data = data;
-        newNode->parent = parent;
         if (newNode == nullptr) {
 
-            cerr << "Error:" << endl;
+            cerr << "Error creating new node" << endl;
 
         }
-
+        newNode->data = data;
+        newNode->parent = parent;
+        if (parent != nullptr) {
+            parent->children.push_back(newNode);
+        }
+        else {
+            //error
+        }
+        
 
         return newNode;
     }
@@ -94,12 +100,9 @@ public:
             node->parent->children.remove(node);
         }
         //to do delete(kill) children (reduce memory usage)
-        auto it = node->children.begin();
-        while (it != node->children.end() && node->children.empty() != true) {
-
-            DeleteNode(*it);
-            ++it;
-
+         while (!node->children.empty()) {
+            Node* child = *(node->children.begin());  // Get the first child
+            DeleteNode(child);
         }
         delete node;
     };
@@ -119,14 +122,15 @@ public:
 
 
         cout << node->data << endl; 
-
-        for (const auto& child : node->children) {
+        
+        for (auto child : node->children) {
             Preorder(child);
+            //cout << child->data << endl;
         }
 
     };
     void InsertNode(int data,Node* node) {
-        //get all children
+        
         // insert the node there
         Node* newNode = CreateNode(data, node);
         node->children.push_back(newNode);
@@ -154,50 +158,51 @@ public:
 
 
     };
-    void PrintTree(Node* node, int depth = 0) {
+    void PrintTree(const Node* node, int depth = 0) {
         if (node != nullptr) {
-            // Print the current node's data at the appropriate depth
             for (int i = 0; i < depth; ++i) {
-                cout << "  ";  // Adjust the spacing for better visualization
+                std::cout << "  ";
             }
-            cout << node->data << endl;
+            std::cout << node->data << std::endl;
 
-            // Recursively print the children nodes
-            for (Tree::Node* child : node->children) {
+            for (Node* child : node->children) {
                 PrintTree(child, depth + 1);
             }
         }
     };
+
+    
    
 };
 
 
-int main()
-{
+int main() {
     Tree tree;
 
+    // Create the root node
     Tree::Node* root = tree.CreateNode(1, nullptr);
-    Tree::Node* child1 = tree.CreateNode(2, root);
-    tree.InsertNode(2, root);
-    tree.InsertNode(3, root);
-    Tree::Node* parent = tree.CreateNode(1, root);
-    tree.InsertNode(2, parent);  // Insert 2 as a child of 1
-    tree.InsertNode(3, parent);
-   /* tree.InsertNode(3, child1);
-    tree.InsertNode(5, child1);
-    tree.InsertNode(5, child1);
 
-    Tree::Node* child2 = tree.CreateNode(3, root);
-    tree.InsertNode(4, child2);
 
-    Tree::Node* child3 = tree.CreateNode(4, root);
-    tree.InsertNode(5, child3);
-
-    Tree::Node* child4 = tree.CreateNode(5, child2);
-    tree.InsertNode(6, child4);*/
-    tree.PrintTree(root);
-
+    // Create another parent node and add children to it
+    Tree::Node* parent = tree.CreateNode(4, root);
     
+
+    // Create another parent node and add children to it
+    Tree::Node* parent1 = tree.CreateNode(7, root);
+    Tree::Node* child2 = tree.CreateNode(8, parent1);
+    Tree::Node* child3 = tree.CreateNode(9, child2);
+    
+
+    // Print the tree
+    //tree.PrintTree(child3);
+    tree.Preorder(root);
+    
+    // Delete a node (example: child2)
+     tree.DeleteNode(child2);
+     tree.Preorder(root);
+
     return 0;
 }
+
+
 

@@ -28,6 +28,7 @@ list<int> GraphLib::GetAdjacentNodes(int vertex) const
 
 	}
 	else {
+		//error message
 		return {};
 	}
 }
@@ -128,9 +129,3 @@ bool GraphLib::isEmpty() const
 
 
 
-int main() {
-
-
-	GraphLib g(2);
-	return 0;
-}
