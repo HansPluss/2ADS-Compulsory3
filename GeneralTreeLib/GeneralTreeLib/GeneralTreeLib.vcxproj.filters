@@ -21,9 +21,15 @@
     <ClCompile Include="GraphLib.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GeneralTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GraphLib.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneralTree.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

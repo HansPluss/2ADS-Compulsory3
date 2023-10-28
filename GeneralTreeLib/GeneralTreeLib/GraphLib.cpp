@@ -126,19 +126,19 @@ bool GraphLib::isEmpty() const
 {
 	return numOfVertices == 0;
 }
-int main() {
-
-	GraphLib graph(8);
-	graph.InsertEdge(0, 1);
-	graph.InsertEdge(0, 2);
-	graph.InsertEdge(1, 3);
-	graph.InsertEdge(2, 3);
-	graph.InsertEdge(3, 4);
-	graph.InsertEdge(3, 5);
-	graph.InsertEdge(4, 6);
-	graph.InsertEdge(5, 6);
-	graph.DFS(1);
-	
-}
+//int main() {
+//
+//	GraphLib graph(8);
+//	graph.InsertEdge(0, 1);
+//	graph.InsertEdge(0, 2);
+//	graph.InsertEdge(1, 3);
+//	graph.InsertEdge(2, 3);
+//	graph.InsertEdge(3, 4);
+//	graph.InsertEdge(3, 5);
+//	graph.InsertEdge(4, 6);
+//	graph.InsertEdge(5, 6);
+//	graph.DFS(1);
+//	
+//}
 
 
