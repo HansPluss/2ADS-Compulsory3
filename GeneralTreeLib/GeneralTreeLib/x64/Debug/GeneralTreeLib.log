@@ -1,2 +1,6 @@
-﻿  GeneralTreeLib.cpp
-  GeneralTreeLib.vcxproj -> C:\Users\Hans Dovenschmitz\Desktop\2ADS-Compulsory3\2ADS-Compulsory3\GeneralTreeLib\x64\Debug\GeneralTreeLib.exe
+﻿C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Microsoft\VC\v170\Microsoft.CppBuild.targets(517,5): warning MSB8028: The intermediate directory (x64\Debug\) contains files shared from another project (GeneralTreeLib.vcxproj).  This can lead to incorrect clean and rebuild behavior.
+  GeneralTree.cpp
+  GeneralTreeLib.cpp
+  Generating Code...
+C:\Users\Hans Dovenschmitz\Desktop\2ADS-Compulsory3\2ADS-Compulsory3\GeneralTreeLib\GeneralTreeLib\GeneralTree.cpp(53): warning C4715: 'GeneralTree::Getparent': not all control paths return a value
+  GeneralTreeLib.vcxproj -> C:\Users\Hans Dovenschmitz\Desktop\2ADS-Compulsory3\2ADS-Compulsory3\GeneralTreeLib\x64\Debug\TreesAndGraphLib.exe

@@ -24,5 +24,7 @@ public:
 	void DFSRecursiveFunc(int vertex, list<int>& visited);
 	int Size() const;
 	bool isEmpty() const;
+	
 };
+
 
