@@ -34,10 +34,10 @@ list<int> GraphLib::GetAdjacentNodes(int vertex) const
 	}
 }
 void GraphLib::InsertVertexAtRandom() {
-	int randomPosition = std::rand() % (numOfVertices + 1);
-	int newVertex = std::rand() % (numOfVertices + 1);
-	int existingVertex1 = std::rand() % (numOfVertices + 1);
-	int existingVertex2 = std::rand() % (numOfVertices + 1);
+	
+	int newVertex = std::rand() % (numOfVertices);
+	int existingVertex1 = std::rand() % (numOfVertices);
+	int existingVertex2 = std::rand() % (numOfVertices);
 
 	InsertVertexAt(newVertex, existingVertex1, existingVertex2);
 }
@@ -65,7 +65,7 @@ void GraphLib::PrintGraph()
 
 list<int> GraphLib::GetVertices()
 {
-	std::list<int> vertices;
+	list<int> vertices;
 
 	for (int v = 0; v < numOfVertices; ++v) {
 		vertices.push_back(v);
@@ -151,21 +151,14 @@ int GraphLib::Size() const
 
 bool GraphLib::isEmpty() const
 {
-	return numOfVertices == 0;
+	if (numOfVertices == 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+
 }
-//int main() {
-//
-//	GraphLib graph(8);
-//	graph.InsertEdge(0, 1);
-//	graph.InsertEdge(0, 2);
-//	graph.InsertEdge(1, 3);
-//	graph.InsertEdge(2, 3);
-//	graph.InsertEdge(3, 4);
-//	graph.InsertEdge(3, 5);
-//	graph.InsertEdge(4, 6);
-//	graph.InsertEdge(5, 6);
-//	graph.DFS(1);
-//	
-//}
+
 
 

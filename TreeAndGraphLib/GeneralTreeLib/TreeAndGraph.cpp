@@ -32,6 +32,12 @@ int main() {
         graph.InsertVertexAtRandom();
      
         graph.DFS(1);
+        graph.isEmpty();
+        graph.Size();
+        graph.GetAllEdges();
+        graph.GetVertices();
+        graph.GetNodeData(2);
+        graph.GetAdjacentNodes(1);
 
     return 0;
 }
