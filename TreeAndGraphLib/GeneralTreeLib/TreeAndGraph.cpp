@@ -15,7 +15,7 @@ int main() {
      tree.PrintTree(root);
     tree.Preorder(root);
     
-     //Delete a node (example: child2)
+     
      tree.DeleteNode(child2);
      tree.Preorder(root);
 

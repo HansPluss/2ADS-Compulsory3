@@ -18,6 +18,8 @@ public:
 	void InsertVertexAtRandom();
 	list<int> GetAdjacentNodes(int vertex) const;
 	list<int> GetVertices();
+	list<pair<int, int>> GetAllEdges() const;
+	int GetNodeData(int vertex) const;
 	void PrintGraph();
 	void DeleteEdge(int v, int e);
 	void DFS(int startvertex);

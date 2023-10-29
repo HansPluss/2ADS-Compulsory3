@@ -76,6 +76,35 @@ list<int> GraphLib::GetVertices()
 	return vertices;
 }
 
+list<pair<int, int>> GraphLib::GetAllEdges() const
+{
+	list<pair<int, int>> edges;
+
+	for (int v = 0; v < numOfVertices; ++v) {
+		for (const auto& neighbor : adjLists[v]) {
+			
+			if (v < neighbor) {
+				edges.push_back({ v, neighbor });
+			}
+		}
+	}
+
+	return edges;
+}
+
+int GraphLib::GetNodeData(int vertex) const
+{
+	if (vertex >= 0 && vertex < numOfVertices) {
+		
+		return vertex;
+	}
+	else {
+		
+		return 0;  //error
+	}
+}
+
+
 void GraphLib::DeleteEdge(int v, int e)
 {
 	auto it = std::find(adjLists[v].begin(), adjLists[v].end(), e);
