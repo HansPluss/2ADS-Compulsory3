@@ -28,7 +28,10 @@ int main() {
      	graph.InsertEdge(3, 5);
      	graph.InsertEdge(4, 6);
      	graph.InsertEdge(5, 6);
-     	//graph.DFS(1);
+     	
+        graph.InsertVertexAtRandom();
+     
+        graph.DFS(1);
 
     return 0;
 }

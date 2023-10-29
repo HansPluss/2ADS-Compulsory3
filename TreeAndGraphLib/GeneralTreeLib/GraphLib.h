@@ -14,7 +14,7 @@ public:
 	GraphLib(int vertices);
 	~GraphLib();
 	void InsertEdge(int v, int e);
-	void InsertVertexAt(int data, int position);
+	void InsertVertexAt(int data, int position, int vertex);
 	void InsertVertexAtRandom();
 	list<int> GetAdjacentNodes(int vertex) const;
 	list<int> GetVertices();

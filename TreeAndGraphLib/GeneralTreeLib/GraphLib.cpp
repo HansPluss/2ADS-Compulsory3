@@ -1,5 +1,6 @@
 #include "GraphLib.h"
 
+using namespace std;
 GraphLib::GraphLib(int vertices)
 {
 	this->numOfVertices = vertices;
@@ -34,23 +35,20 @@ list<int> GraphLib::GetAdjacentNodes(int vertex) const
 }
 void GraphLib::InsertVertexAtRandom() {
 	int randomPosition = std::rand() % (numOfVertices + 1);
-	InsertVertexAt(std::rand(), randomPosition);
+	int newVertex = std::rand() % (numOfVertices + 1);
+	int existingVertex1 = std::rand() % (numOfVertices + 1);
+	int existingVertex2 = std::rand() % (numOfVertices + 1);
+
+	InsertVertexAt(newVertex, existingVertex1, existingVertex2);
 }
-void GraphLib::InsertVertexAt(int data, int position)
+
+void GraphLib::InsertVertexAt(int vertex, int existingVertex1, int existingVertex2)
 {
-	if (position >= 0 && position <= numOfVertices) {
-		
-		adjLists[position].push_back(data);
+	InsertEdge(vertex, existingVertex1);
+	InsertEdge(vertex, existingVertex2);
+
 
 	
-		for (int i = 0; i < numOfVertices; ++i) {
-			if (i != position) {
-				adjLists[i].push_back(data);
-				adjLists[position].push_back(i);
-			}
-		}
-	}
-	numOfVertices++;
 
 }
 
